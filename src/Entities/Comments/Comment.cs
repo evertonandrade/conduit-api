@@ -1,3 +1,5 @@
+using Conduit.Api.Entities.Users;
+
 namespace Conduit.Api.Entities.Comments;
 
 public class Comment

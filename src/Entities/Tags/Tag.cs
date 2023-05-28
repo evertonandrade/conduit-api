@@ -1,3 +1,5 @@
+namespace Conduit.Api.Entities.Tags;
+
 public class Tag
 {
     public TagId Id { get; } = Guid.NewGuid();

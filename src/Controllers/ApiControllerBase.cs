@@ -4,7 +4,7 @@ using MediatR;
 namespace Conduit.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public abstract class ApiControllerBase : ControllerBase
 {
     private ISender _mediator = null!;
