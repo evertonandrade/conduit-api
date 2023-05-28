@@ -1,6 +1,5 @@
+using MediatR;
+
 namespace Conduit.Api.Common.Abstractions;
 
-public interface ICommand
-{
-    
-}
+interface ICommand<out TCommandResult> : IRequest<TCommandResult> { }
