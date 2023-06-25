@@ -1,4 +1,7 @@
 using Conduit.Api.Common.Abstractions;
+using Conduit.Api.UseCases.Users.Contracts;
+using Conduit.Api.UseCases.Users.Queries.Login;
+using MediatR;
 
 namespace Conduit.Api.Endpoints.Users;
 
@@ -6,13 +9,12 @@ public class LoginUserEndpoint : IEndpoint
 {
     public void Configure(IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapPost("user", Handle);
+        endpoints.MapPost("users", Handle);
     }
 
-    IResult Handle(LoginUserRequest loginUser)
+    async Task<IResult> Handle(IMediator mediator, LoginRequest request)
     {
-        return Results.Ok();
+        var response = await mediator.Send(new LoginQuery(request.Email, request.Password));
+        return Results.Ok(response);
     }
-
-    record LoginUserRequest(string Email, string Password);
 }

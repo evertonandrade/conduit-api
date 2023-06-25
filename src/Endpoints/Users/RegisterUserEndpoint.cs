@@ -1,4 +1,6 @@
 using Conduit.Api.Common.Abstractions;
+using Conduit.Api.UseCases.Users.Commands.Register;
+using Conduit.Api.UseCases.Users.Contracts;
 
 namespace Conduit.Api.Endpoints.Users;
 
@@ -6,13 +8,15 @@ public class RegisterUserEndpoint : IEndpoint
 {
     public void Configure(IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapPost("user", Handle);
+        endpoints.MapPost("users", Handle);
     }
 
-    Task Handle(HttpContext context)
+    async Task<IResult> Handle(RegisterRequest request, ICommandBus bus)
     {
-        throw new NotImplementedException();
-    }
+        var response = await bus.Send(
+            new RegisterUserCommand(request.Username, request.Email, request.Password)
+        );
 
-    record RegisterUserRequest();
+        return Results.Ok(response);
+    }
 }

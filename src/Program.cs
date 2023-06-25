@@ -3,6 +3,7 @@ using Conduit.Api.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddMediator();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

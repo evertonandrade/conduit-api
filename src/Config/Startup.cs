@@ -1,5 +1,4 @@
 using System.Reflection;
-
 using Conduit.Api.Common.Abstractions;
 
 namespace Conduit.Api.Config;
@@ -18,5 +17,12 @@ public static class Startup
             var endpoint = Activator.CreateInstance(endpointType) as IEndpoint;
             endpoint?.Configure(endpoints);
         }
+    }
+
+    internal static void AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(
+            config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
+        );
     }
 }
