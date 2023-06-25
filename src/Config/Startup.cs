@@ -1,5 +1,6 @@
 using System.Reflection;
 using Conduit.Api.Common.Abstractions;
+using Conduit.Api.Common.Authentication;
 
 namespace Conduit.Api.Config;
 
@@ -24,5 +25,13 @@ public static class Startup
         services.AddMediatR(
             config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
         );
+        services.AddScoped<ICommandDispatcher, CommandDispatcher>();
+        services.AddScoped<IQueryDispatcher, QueryDispatcher>();
+    }
+
+    internal static void AddJwtConfig(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddSingleton<JwtTokenGenerator>();
+        services.Configure<JwtSettings>(configuration.GetSection(nameof(JwtSettings)));
     }
 }

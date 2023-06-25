@@ -2,10 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Conduit.Api.Entities.Users;
 
-using LanguageExt.SomeHelp;
-
-using Microsoft.AspNetCore.Identity;
-
 namespace Conduit.Api.Database.Configurations;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>

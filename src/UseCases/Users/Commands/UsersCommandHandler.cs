@@ -2,7 +2,6 @@ using Conduit.Api.Common.Abstractions;
 using Conduit.Api.Common.Authentication;
 using Conduit.Api.Database;
 using Conduit.Api.Entities.Users;
-using Conduit.Api.UseCases.Users.Commands.Create;
 using Conduit.Api.UseCases.Users.Commands.Register;
 using Conduit.Api.UseCases.Users.Contracts;
 

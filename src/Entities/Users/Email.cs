@@ -11,6 +11,7 @@ public readonly record struct Email
     private Email(string value) => _value = value;
 
     public static implicit operator Email(string value) => Parse(value);
+    public static implicit operator string(Email email) => email.ToString();
 
     public static Email Parse(string value) =>
         TryParse(value, out var result)
