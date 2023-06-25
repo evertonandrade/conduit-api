@@ -11,10 +11,15 @@ public class RegisterUserEndpoint : IEndpoint
         endpoints.MapPost("users", Handle);
     }
 
-    async Task<IResult> Handle(RegisterRequest request, ICommandBus bus)
+    async Task<IResult> Handle(
+        ICommandDispatcher commandDispatcher,
+        RegisterRequest request,
+        CancellationToken cancellationToken
+    )
     {
-        var response = await bus.Send(
-            new RegisterUserCommand(request.Username, request.Email, request.Password)
+        var response = await commandDispatcher.Dispatch(
+            new RegisterUserCommand(request.Username, request.Email, request.Password),
+            cancellationToken
         );
 
         return Results.Ok(response);

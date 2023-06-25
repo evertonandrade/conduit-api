@@ -12,9 +12,16 @@ public class LoginUserEndpoint : IEndpoint
         endpoints.MapPost("users", Handle);
     }
 
-    async Task<IResult> Handle(IMediator mediator, LoginRequest request)
+    async Task<IResult> Handle(
+        IQueryDispatcher queryDispatcher,
+        LoginRequest request,
+        CancellationToken cancellationToken
+    )
     {
-        var response = await mediator.Send(new LoginQuery(request.Email, request.Password));
+        var response = await queryDispatcher.Dispatch(
+            new LoginQuery(request.Email, request.Password),
+            cancellationToken
+        );
         return Results.Ok(response);
     }
 }

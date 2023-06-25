@@ -19,7 +19,7 @@ public static class Startup
         }
     }
 
-    internal static void AddMediator(this IServiceCollection services)
+    internal static void AddCqrs(this IServiceCollection services)
     {
         services.AddMediatR(
             config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
