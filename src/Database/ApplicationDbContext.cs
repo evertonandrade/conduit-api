@@ -1,5 +1,4 @@
 using System.Reflection;
-
 using Conduit.Api.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 

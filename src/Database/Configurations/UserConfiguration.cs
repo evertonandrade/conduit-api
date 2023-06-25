@@ -4,7 +4,7 @@ using Conduit.Api.Entities.Users;
 
 namespace Conduit.Api.Database.Configurations;
 
-internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
+public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {

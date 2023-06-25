@@ -12,6 +12,7 @@ public readonly record struct UserName
     private UserName(string value) => _value = value;
 
     public static implicit operator UserName(string value) => Parse(value);
+    public static implicit operator string(UserName userName) => userName.ToString();
 
     public static UserName Parse(string value) =>
         TryParse(value, out var result)

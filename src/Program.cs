@@ -1,5 +1,8 @@
+using Conduit.Api.Config;
+using Conduit.Api.Database;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
+builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -11,7 +14,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+app.UseEndpoints(Startup.RegisterEndpoints);
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 app.Run();

@@ -1,12 +1,12 @@
 using Conduit.Api.Common.Abstractions;
 using Conduit.Api.Database;
-using Conduit.Api.Entities.Users.UseCases.Create;
-using Conduit.Api.Entities.Users.UseCases.Update;
+using Conduit.Api.Entities.Users;
+using Conduit.Api.UseCases.Users.Commands.Create;
+using Conduit.Api.UseCases.Users.Commands.Update;
 
-namespace Conduit.Api.Entities.Users.UseCases;
+namespace Conduit.Api.UseCases.Users.Commands;
 
-internal class UsersCommandHandler
-    : ICommandHandler<CreateUserCommand, User>,
+public class UsersCommandHandler : ICommandHandler<CreateUserCommand, User>,
         ICommandHandler<UpdateUserCommand, User>
 {
     private readonly ApplicationDbContext _dbContext;
