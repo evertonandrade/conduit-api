@@ -1,4 +1,7 @@
+using Conduit.Config;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.ConfigureAppBuilder();
 var app = builder.Build();
-app.MapGet("/", (IConfiguration configuration) => configuration["Enviroment"]);
+app.ConfigureApp();
 app.Run();

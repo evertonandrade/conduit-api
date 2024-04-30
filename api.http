@@ -1,0 +1,20 @@
+### Registration
+
+POST http://localhost:5000/api/users/
+Content-Type: application/json
+
+{
+    "username": "Jacob",
+    "email": "jake@jake.jake",
+    "password": "jakejake"
+}
+
+### Login
+
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "jake@jake.jake",
+    "password": "jakejake"
+}
