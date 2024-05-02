@@ -1,15 +1,16 @@
 using Conduit.Data;
 using Conduit.Endpoints;
+
 using Microsoft.EntityFrameworkCore;
 
-namespace Conduit.Config;
+namespace Conduit.Extensions;
 
 public static class ApplicationExtensions
 {
     public static void ConfigureApp(this WebApplication app)
     {
-        app.UseHttpsRedirection();
         app.MapEndpoints();
+        app.UseHttpsRedirection();
         app.EnsureDatabaseCreated();
     }
 

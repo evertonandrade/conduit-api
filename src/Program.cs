@@ -1,4 +1,4 @@
-using Conduit.Config;
+using Conduit.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.ConfigureAppBuilder();

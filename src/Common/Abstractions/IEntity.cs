@@ -1,4 +1,4 @@
-namespace Conduit.Abstractions;
+namespace Conduit.Common.Abstractions;
 
 public interface IEntity
 {

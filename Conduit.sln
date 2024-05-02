@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conduit", "src\Conduit.csproj", "{A5FF2E00-80B0-428B-8479-0D7D73B996CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conduit.Tests", "tests\Conduit.Tests.csproj", "{105DC844-F628-40AC-AE03-1B202B74F227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105DC844-F628-40AC-AE03-1B202B74F227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105DC844-F628-40AC-AE03-1B202B74F227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105DC844-F628-40AC-AE03-1B202B74F227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105DC844-F628-40AC-AE03-1B202B74F227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

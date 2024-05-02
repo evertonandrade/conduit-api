@@ -14,7 +14,8 @@ namespace Conduit.Data.Migrations
                 name: "users",
                 columns: table => new
                 {
-                    id = table.Column<long>(type: "INTEGER", nullable: false)
+                    id = table
+                        .Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     email = table.Column<string>(type: "TEXT", maxLength: 320, nullable: false),
                     password = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false)
@@ -22,7 +23,8 @@ namespace Conduit.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_users", x => x.id);
-                });
+                }
+            );
 
             migrationBuilder.CreateTable(
                 name: "profile",
@@ -41,18 +43,18 @@ namespace Conduit.Data.Migrations
                         column: x => x.id,
                         principalTable: "users",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+                        onDelete: ReferentialAction.Cascade
+                    );
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "profile");
+            migrationBuilder.DropTable(name: "profile");
 
-            migrationBuilder.DropTable(
-                name: "users");
+            migrationBuilder.DropTable(name: "users");
         }
     }
 }

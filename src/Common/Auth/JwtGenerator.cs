@@ -1,20 +1,20 @@
-using Conduit.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Conduit.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Conduit.Utils;
+namespace Conduit.Common.Auth;
 
 public class JwtGenerator(IOptions<JwtOptions> options)
 {
     public string GenerateToken(User user)
     {
-        var key = SecurityKey(options.Value.Key);        
-        var token = new JwtSecurityToken
-        (
-            claims: [
+        var key = SecurityKey(options.Value.Key);
+        var token = new JwtSecurityToken(
+            claims:
+            [
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(ClaimTypes.UserData, user.Email.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

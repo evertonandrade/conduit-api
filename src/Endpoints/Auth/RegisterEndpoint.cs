@@ -1,7 +1,8 @@
-using Conduit.Abstractions;
+using Conduit.Common.Abstractions;
+using Conduit.Common.Auth;
 using Conduit.Data;
 using Conduit.Entities;
-using Conduit.Utils;
+using Conduit.Extensions;
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,9 @@ namespace Conduit.Endpoints.Auth;
 public class RegisterEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app) =>
-        app.MapPost("/", Handle).WithSummary("Register a new user");
+        app.MapPost("/", Handle)
+            .WithSummary("Register a new user")
+            .WithRequestValidation<RegisterRequest>();
 
     static async Task<Results<Ok<RegisterResponse>, Conflict>> Handle(
         AppDbContext dbContext,
@@ -46,23 +49,23 @@ public class RegisterEndpoint : IEndpoint
         return TypedResults.Ok(response);
     }
 
-    record RegisterRequest(string Username, string Email, string Password);
+    public record RegisterRequest(string Username, string Email, string Password);
 
-    class RegisterRequestValidator : AbstractValidator<RegisterRequest>
-    {
-        public RegisterRequestValidator()
-        {
-            RuleFor(r => r.Username).NotNull().NotEmpty();
-            RuleFor(r => r.Email).EmailAddress();
-            RuleFor(r => r.Password).NotNull().NotEmpty();
-        }
-    }
-
-    record RegisterResponse(
+    public record RegisterResponse(
         string Email,
         string Token,
         string? Username,
         string? Bio,
         string? Image
     );
+
+    public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
+    {
+        public RegisterRequestValidator()
+        {
+            RuleFor(r => r.Username).NotEmpty();
+            RuleFor(r => r.Email).EmailAddress();
+            RuleFor(r => r.Password).NotEmpty().MinimumLength(8);
+        }
+    }
 }

@@ -1,10 +1,10 @@
-using Conduit.Abstractions;
+using Conduit.Common.Abstractions;
 using Conduit.Common.Filters;
 using Conduit.Endpoints.Auth;
 
 namespace Conduit.Endpoints;
 
-public static class EndpointExtensions
+public static class EndpointMappingExtensions
 {
     public static void MapEndpoints(this WebApplication app)
     {

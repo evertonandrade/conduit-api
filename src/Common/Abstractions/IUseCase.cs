@@ -1,6 +1,6 @@
-namespace Conduit.Abstractions;
+namespace Conduit.Common.Abstractions;
 
-public interface IUseCase<TInput, TOutput> 
+public interface IUseCase<TInput, TOutput>
 {
     TOutput Execute(TInput input);
 }

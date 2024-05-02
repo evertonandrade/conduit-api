@@ -1,9 +1,12 @@
+using Conduit.Common.Auth;
 using Conduit.Data;
-using Conduit.Utils;
+
+using FluentValidation;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Conduit.Config;
+namespace Conduit.Extensions;
 
 public static class ApplicationBuilderExtensions
 {
@@ -18,6 +21,7 @@ public static class ApplicationBuilderExtensions
             opt.UseSqlite(builder.Configuration.GetConnectionString("Default"))
         );
         builder.AddJwtAuthentication();
+        builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
     }
 
     private static void AddJwtAuthentication(this WebApplicationBuilder builder)
