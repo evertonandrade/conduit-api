@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conduit", "src\Conduit.csproj", "{A5FF2E00-80B0-428B-8479-0D7D73B996CC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9D851C19-621C-4792-BD44-FB500AC25A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conduit.Tests", "tests\Conduit.Tests.csproj", "{105DC844-F628-40AC-AE03-1B202B74F227}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "src\WebApi\WebApi.csproj", "{EA1B06DE-CA79-4963-BF01-A8C27C1BAE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +16,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5FF2E00-80B0-428B-8479-0D7D73B996CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{105DC844-F628-40AC-AE03-1B202B74F227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{105DC844-F628-40AC-AE03-1B202B74F227}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{105DC844-F628-40AC-AE03-1B202B74F227}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{105DC844-F628-40AC-AE03-1B202B74F227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1B06DE-CA79-4963-BF01-A8C27C1BAE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1B06DE-CA79-4963-BF01-A8C27C1BAE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1B06DE-CA79-4963-BF01-A8C27C1BAE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1B06DE-CA79-4963-BF01-A8C27C1BAE05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA1B06DE-CA79-4963-BF01-A8C27C1BAE05} = {9D851C19-621C-4792-BD44-FB500AC25A72}
 	EndGlobalSection
 EndGlobal
